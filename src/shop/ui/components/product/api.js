@@ -8,7 +8,7 @@ export const getProducts = () => {
     ];
 
     return products.map ( item => {
-        return new Product(item.id, item.name, item.price);
+        return new Product(item);
 })
 }
 
