@@ -1,23 +1,18 @@
-import logo from './logo.svg';
+
 import './App.css';
+import Product from './shop/ui/components/product/ui.js';
+import { getProducts } from './shop/ui/components/product/api.js';
 
 function App() {
+  const products = getProducts();
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      {products.map(item => {
+        return <Product key={item.id} productObject={item}/>
+      })}
+      
+      
     </div>
   );
 }
